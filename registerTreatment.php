@@ -1,4 +1,6 @@
 <?php
+require "Model/db.php";
+require "Model/functionUsers.php";
 //Si le formulaire n'est pas vide on le vérifie
 if(!empty($_POST))
 {
@@ -8,7 +10,7 @@ if(!empty($_POST))
   {
     $_POST[$key] = htmlspecialchars($value);
   }
-  
+
   //On boucle pour vérifier si une valeur est vide
   $isEmpty = false;
   foreach ($_POST as $key => $value)
@@ -52,6 +54,14 @@ if(!empty($_POST))
   //Sinon on envoi sur la page de login avec un message de succès
   else
   {
+
+    $name = htmlspecialchars($_POST["user_name"]);
+    $password = (htmlspecialchars($_POST["user_password"]));
+    $hash = password_hash($password, PASSWORD_DEFAULT);
+    $status ="user";
+    $sexe = $_POST["user_sexe"];
+    addUser($bdd,$name,$password,$status,$sexe);
+
     header("Location: index.php?success=Compte créé avec succès, vous pouvez vous connecter");
     exit;
   }
