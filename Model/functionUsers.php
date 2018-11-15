@@ -15,4 +15,13 @@ function addUser($bdd, $name, $password, $status, $sexe)
    'sexe'=>$sexe
 ));
 }
+
+function getUser($bdd,$name)
+{
+  $query = $bdd->prepare("SELECT * FROM User WHERE name=?");
+  $query->execute([$name]);
+  $result = $query->fetch(PDO::FETCH_ASSOC);
+  return $result;
+}
+
 ?>
