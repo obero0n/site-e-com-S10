@@ -13,7 +13,9 @@ require "Model/functionUsers.php";
 require "Model/functionProduct.php";
 include "Template/header.php";
 //On récupère notre produits via la fonction, plus tard celle-ci effectuera une requête en base de données
-$product = getProduct($bdd);
+
+$id = intval(htmlspecialchars($_GET["id"]));
+$product = getProduct($bdd,$id);
  ?>
 
  <div class="row mt-5">
