@@ -11,9 +11,11 @@ if(!empty($_POST)) {
   //On récupère les utilisateurs stockés sur le site (ici pour l'exercice ils sont stockés dans une fonction)
   $user = getUser($bdd,$_POST["user_name"]);
 
+  $password_OK = password_verify( $_POST["user_password"], $user["password"]);
+
   //On vérifie si on trouve une correspondance avec les infromations du formulaire
 
-    if($user["name"] === $_POST["user_name"] && $user["password"] === $_POST["user_password"]) {
+    if($password_OK) {
       //Si c'est le cas on démarre une session pour y stocker les informations de l'utilisateur
       session_start();
       $_SESSION["user"] = $user;

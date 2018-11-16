@@ -60,7 +60,7 @@ if(!empty($_POST))
     $hash = password_hash($password, PASSWORD_DEFAULT);
     $status ="user";
     $sexe = $_POST["user_sexe"];
-    addUser($bdd,$name,$password,$status,$sexe);
+    addUser($bdd,$name,$hash,$status,$sexe);
 
     header("Location: index.php?success=Compte créé avec succès, vous pouvez vous connecter");
     exit;

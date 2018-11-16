@@ -8,7 +8,7 @@ function getProducts($bdd)
 }
 
 //Fonction qui sur la base d'un id et de la fonction getProducts renvoie un seul produit
-function getProduct($bdd,$id)
+function getProduct($bdd)
 {
   $id = htmlspecialchars($_GET["id"]);
   $request = $bdd->prepare("SELECT * FROM product WHERE id= ? ");

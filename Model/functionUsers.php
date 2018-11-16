@@ -24,4 +24,5 @@ function getUser($bdd,$name)
   return $result;
 }
 
+
 ?>

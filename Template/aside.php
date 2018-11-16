@@ -1,12 +1,11 @@
 <aside class="col-lg-3">
   <i class="fas fa-user-ninja fa-4x mb-3"></i>
   <ul class="list-group">
-    <?php
-    //On boucle sur l'utilisateur stocké en session pour afficher toutes ses informations
-    foreach ($_SESSION["user"] as $key => $value) {
-      echo "<li class='list-group-item'>$key : $value</li>";
-    }
-    ?>
+
+
+    <?php echo "<li class='list-group-item'>". $_SESSION["user"]["name"] . "</li>"; ?>
+    <?php echo "<li class='list-group-item'>". $_SESSION["user"]["status"] . "</li>"; ?>
+    <?php echo "<li class='list-group-item'>". $_SESSION["user"]["sexe"] . "</li>"; ?>
   </ul>
   <a href="basket.php" class="my-3">Votre panier</a>
   <ul class="list-group">
